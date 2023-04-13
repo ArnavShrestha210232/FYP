@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col col-md-6"><b>Table Info</b></div>
             <div class="col col-md-6">
-                <a href="{{route('table.create')}}" class="btn btn-success btn-sm
+                <a href="{{route('tableinfo.create')}}" class="btn btn-success btn-sm
                 float-end">Add</a>
             </div>
         </div>
@@ -38,11 +38,11 @@
                         <td>{{$row->total_seat}}</td>
                         <td>{{$row->table_status}}</td>
                         <td>
-                            <form method="post" action="{{ route('table.destroy', $row->id) }}">
+                            <form method="post" action="{{ route('tableinfo.destroy', $row->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <a herf="{{ route('table.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
-                                <a href="{{ route('table.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a herf="{{ route('tableinfo.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ route('tableinfo.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
                             </form>
                         </td>

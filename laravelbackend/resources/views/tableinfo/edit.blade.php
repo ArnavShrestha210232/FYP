@@ -5,7 +5,7 @@
 <div class="card">
     <div class="card-header">Edit Table</div>
     <div class="card-body">
-    <form method="post" action="{{ route('table.update', $table->id)}}" enctype="multipart/
+    <form method="post" action="{{ route('tableinfo.update', $tableinfo->id)}}" enctype="multipart/
         form-data">
             @csrf
             @method('PUT')
@@ -13,7 +13,7 @@
                 <label class="col-sm-2 col-label-form">Table number</label>
                 <div class="col-sm-10">
                     <input type="text" name="table_number" class="form-control" value=" {{
-                    $table->table_number}}" />
+                    $tableinfo->table_number}}" />
                 </div>
             </div>
             <div class="row mb-3">
@@ -42,15 +42,15 @@
                 </div>
             </div>
             <div class="text-center">
-                <input type="hidden" name="hidden_id" value="{{$table->id}}"/>
+                <input type="hidden" name="hidden_id" value="{{$tableinfo->id}}"/>
                 <input type="submit" class="btn btn-primary" value="Add" />
             </div>
         </form>
     </div>
 </div>
 <script>
-document.getElementByName('table_type')[0].value = "{{ $table->table_type }}";
-document.getElementByName('table_status')[0].value = "{{ $table->table_status }}";
+document.getElementByName('table_type')[0].value = "{{ $tableinfo->table_type }}";
+document.getElementByName('table_status')[0].value = "{{ $tableinfo->table_status }}";
 </script>
 
 @endsection('content')
