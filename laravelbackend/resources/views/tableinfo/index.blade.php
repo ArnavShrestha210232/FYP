@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col col-md-6"><b>Table Info</b></div>
             <div class="col col-md-6">
-                <a href="{{route('food.create')}}" class="btn btn-success btn-sm
+                <a href="{{route('table.create')}}" class="btn btn-success btn-sm
                 float-end">Add</a>
             </div>
         </div>
@@ -33,17 +33,16 @@
                 @foreach($data as $row)
 
                     <tr>
-                        <td><img src="{{ asset('images/' . $row->food_image) }}" width="75" /></td>
                         <td>{{$row->table_number}}</td>
                         <td>{{$row->table_type}}</td>
                         <td>{{$row->total_seat}}</td>
                         <td>{{$row->table_status}}</td>
                         <td>
-                            <form method="post" action="{{ route('food.destroy', $row->id) }}">
+                            <form method="post" action="{{ route('table.destroy', $row->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <a herf="{{ route('food.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
-                                <a href="{{ route('food.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a herf="{{ route('table.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{ route('table.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
                             </form>
                         </td>

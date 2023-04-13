@@ -17,7 +17,7 @@
 <div class="card">
     <div class="card-header">Add Table</div>
     <div class="card-body">
-        <form method="post" action="{{ route('food.store')}}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('table.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
                 <label class="col-sm-2 col-label-form">Table number</label>
