@@ -30,7 +30,7 @@ class TableinfoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'table_number'         =>  'required|unique:food',
+            'table_number'         =>  'required|unique:tableinfo',
             'table_type'         =>  'required',
             'total_seat'         =>  'required', 
             'table_status'         =>  'required',
@@ -38,7 +38,7 @@ class TableinfoController extends Controller
         
 
         
-        $tableinfo = new Food;
+        $tableinfo = new Tableinfo;
 
         $tableinfo->table_number = $request->table_number;
         $tableinfo->table_type = $request->table_type;
@@ -47,7 +47,7 @@ class TableinfoController extends Controller
 
         $tableinfo->save();
 
-        return redirect()->route('tableinfo.index')->with('success','Food Added Successfully.');
+        return redirect()->route('tableinfo.index')->with('success','Table Info Added Successfully.');
     }
 
     /**
@@ -74,7 +74,7 @@ class TableinfoController extends Controller
     public function update(Request $request, tableinfo $tableinfo)
     {
         $request->validate([
-            'table_number'         =>  'required|unique:food',
+            'table_number'         =>  'required|unique:tableinfo',
             'table_type'         =>  'required',
             'total_seat'         =>  'required', 
             'table_status'         =>  'required',
@@ -92,9 +92,9 @@ class TableinfoController extends Controller
         $tableinfo->table_status = $request->table_status;
 
 
-        $food->save();
+        $tableinfo->save();
 
-        return redirect()->route('tableinfo.index')->with('success', 'Food Data has been updated successfully');
+        return redirect()->route('tableinfo.index')->with('success', 'Table Info has been updated successfully');
     }
 
     /**
