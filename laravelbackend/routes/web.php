@@ -29,3 +29,5 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::resource ('food', FoodController::class);
+
+Route::resource ('tableinfo', TableinfoController::class);
