@@ -52,10 +52,12 @@ class TableinfoController extends Controller
 
     /**
      * Display the specified resource.
+     * @param  \App\Models\tableinfo  $tableinfo
+     * @return \Illuminate\Http\Response
      */
     public function show(tableinfo $tableinfo)
     {
-        //
+        return view('show', compact('tableinfo'));
     }
 
     /**
@@ -63,7 +65,7 @@ class TableinfoController extends Controller
      */
     public function edit(tableinfo $tableinfo)
     {
-        //
+        return view('edit', compact('tableinfo'));
     }
 
     /**
@@ -71,7 +73,28 @@ class TableinfoController extends Controller
      */
     public function update(Request $request, tableinfo $tableinfo)
     {
-        //
+        $request->validate([
+            'table_number'         =>  'required|unique:food',
+            'table_type'         =>  'required',
+            'total_seat'         =>  'required', 
+            'table_status'         =>  'required',
+        ]); 
+
+
+        $tableinfo = tableinfo::find($request->hidden_id);
+
+        $tableinfo->table_number = $request->table_number;
+
+        $tableinfo->table_type = $request->table_type;
+
+        $tableinfo->total_seat = $request->total_seat;
+
+        $tableinfo->table_status = $request->table_status;
+
+
+        $food->save();
+
+        return redirect()->route('tableinfo.index')->with('success', 'Food Data has been updated successfully');
     }
 
     /**
@@ -79,6 +102,8 @@ class TableinfoController extends Controller
      */
     public function destroy(tableinfo $tableinfo)
     {
-        //
+        $tableinfo->delete();
+
+        return redirect()->route('tableinfo.index')->with('success', 'Table Info has been deleted successfully');
     }
 }
