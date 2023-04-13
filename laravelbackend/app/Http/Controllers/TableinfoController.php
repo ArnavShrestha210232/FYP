@@ -12,7 +12,8 @@ class TableinfoController extends Controller
      */
     public function index()
     {
-        //
+        $data = Tableinfo::latest()->paginate(5);
+        return view('index', compact('data'))->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -20,7 +21,7 @@ class TableinfoController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -28,7 +29,25 @@ class TableinfoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'table_number'         =>  'required|unique:food',
+            'table_type'         =>  'required',
+            'total_seat'         =>  'required', 
+            'table_status'         =>  'required',
+        ]); 
+        
+
+        
+        $tableinfo = new Food;
+
+        $tableinfo->table_number = $request->table_number;
+        $tableinfo->table_type = $request->table_type;
+        $tableinfo->total_seat = $request->total_seat;
+        $tableinfo->table_status = $request->table_status;
+
+        $tableinfo->save();
+
+        return redirect()->route('tableinfo.index')->with('success','Food Added Successfully.');
     }
 
     /**
