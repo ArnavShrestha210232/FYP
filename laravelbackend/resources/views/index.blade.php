@@ -25,22 +25,26 @@
         <table class="table table-bordered">
             <tr>
                 <th>Image</th>
+                <th>Category</th>
                 <th>Name</th>
                 <th>Size</th>
                 <th>Calories</th>
                 <th>MealType</th>
                 <th>PreparationMethod</th>
+                <th>Price</th>
             </tr>
             @if(count($data) > 0)
                 @foreach($data as $row)
 
                     <tr>
                         <td><img src="{{ asset('images/' . $row->food_image) }}" width="75" /></td>
+                        <td>{{$row->food_category}}</td>
                         <td>{{$row->food_name}}</td>
                         <td>{{$row->food_size}}</td>
                         <td>{{$row->food_calories}}</td>
                         <td>{{$row->meal_type}}</td>
                         <td>{{$row->preparation_method}}</td>
+                        <td>{{$row->food_price}}</td>
                         <td>
                             <form method="post" action="{{ route('food.destroy', $row->id) }}">
                                 @csrf

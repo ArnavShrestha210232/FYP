@@ -18,15 +18,15 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{URL::to('/tableinfo');}}">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Acountant</span>
+            <span class="links_name">Table Info</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{URL::to('/tablereserve');}}">
             <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Create Staff</span>
+            <span class="links_name">Table Reserve</span>
           </a>
         </li>
         <li>

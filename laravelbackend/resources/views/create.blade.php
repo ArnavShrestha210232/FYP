@@ -20,6 +20,12 @@
         <form method="post" action="{{ route('food.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
+                <label class="col-sm-2 col-label-form">Food Category</label>
+                <div class="col-sm-10">
+                    <input type="text" name="food_category" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-3">
                 <label class="col-sm-2 col-label-form">Food Name</label>
                 <div class="col-sm-10">
                     <input type="text" name="food_name" class="form-control" />
@@ -55,6 +61,12 @@
                 <label class="col-sm-2 col-label-form">Preparation Method</label>
                 <div class="col-sm-10">
                     <input type="text" name="preparation_method" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-label-form">Food Price</label>
+                <div class="col-sm-10">
+                    <input type="text" name="food_price" class="form-control" />
                 </div>
             </div>
             <div class="row mb-4">

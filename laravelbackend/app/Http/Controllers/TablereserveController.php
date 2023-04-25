@@ -32,13 +32,13 @@ class TablereserveController extends Controller
     {
         $request->validate([
             'time_in'         =>  'required',
-            'time_out'         =>  'required',
             'made_by'         =>  'required',
             'guests_number'         =>  'required',
             'table_number'         =>  'required|unique:tablereserve',
             'table_type'         =>  'required',
             'contact_information'         =>  'required', 
             'special_requests'         =>  'required',
+            'booking_price'         =>  'required',
             'notes_comments'         =>  'required',
         ]); 
         
@@ -47,13 +47,13 @@ class TablereserveController extends Controller
         $tablereserve = new Tablereserve;
 
         $tablereserve->time_in = $request->time_in;
-        $tablereserve->time_out = $request->time_out;
         $tablereserve->made_by = $request->made_by;
         $tablereserve->guests_number = $request->guests_number;
         $tablereserve->table_number = $request->table_number;
         $tablereserve->table_type = $request->table_type;
         $tablereserve->contact_information = $request->contact_information;
         $tablereserve->special_requests = $request->special_requests;
+        $tablereserve->booling_price= $request->booking_price;
         $tablereserve->notes_comments = $request->notes_comments;
 
         $tablereserve->save();
@@ -86,13 +86,13 @@ class TablereserveController extends Controller
     {
         $request->validate([
             'time_in'         =>  'required',
-            'time_out'         =>  'required',
             'made_by'         =>  'required',
             'guests_number'         =>  'required',
             'table_number'         =>  'required|unique:tablereserve',
             'table_type'         =>  'required',
             'contact_information'         =>  'required', 
             'special_requests'         =>  'required',
+            'booking_price'         =>  'required',
             'notes_comments'         =>  'required',
         ]); 
 
@@ -100,13 +100,13 @@ class TablereserveController extends Controller
         $tablereserve = tablereserve::find($request->hidden_id);
 
         $tablereserve->time_in = $request->time_in;
-        $tablereserve->time_out = $request->time_out;
         $tablereserve->made_by = $request->made_by;
         $tablereserve->guests_number = $request->guests_number;
         $tablereserve->table_number = $request->table_number;
         $tablereserve->table_type = $request->table_type;
         $tablereserve->contact_information = $request->contact_information;
         $tablereserve->special_requests = $request->special_requests;
+        $tablereserve->booking_price = $request->booking_price;
         $tablereserve->notes_comments = $request->notes_comments;
 
         $tablereserve->save();

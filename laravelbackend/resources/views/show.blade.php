@@ -3,14 +3,19 @@
 @section('content')
 
 <div class="card">
-    <div class="card-header'>
+    <div class="card-header">
         <div class="col col-md-6"><b>Food Details</b></div>
         <div class="col col-md-6">
             <a href ="{{ route('food.index') }}" class="btn btn-primary btn-sm
             float-end">View All</a>
         </div>
     </div>
-
+    <div class= "row mb-3">
+            <label class="col-sm-2 col-label-form"><b>Food Category</b></label>
+            <div class="col-sm-10">
+            {{$food->food_category}}
+            </div>
+    </div>
     <div class="card-body">
         <div class= "row mb-3">
             <label class="col-sm-2 col-label-form"><b>Food Name</b></label>
@@ -18,6 +23,7 @@
             {{$food->food_name}}
             </div>
         </div>
+        
         <div class= "row mb-3">
             <label class="col-sm-2 col-label-form"><b>Food Size</b></label>
             <div class="col-sm-10">
@@ -40,6 +46,12 @@
             <label class="col-sm-2 col-label-form"><b>Preparation Method</b></label>
             <div class="col-sm-10">
                 {{$food->preparation_method}}
+            </div>
+        </div>
+        <div class= "row mb-3">
+            <label class="col-sm-2 col-label-form"><b>Price</b></label>
+            <div class="col-sm-10">
+            {{$food->food_price}}
             </div>
         </div>
         <div class= "row mb-3">

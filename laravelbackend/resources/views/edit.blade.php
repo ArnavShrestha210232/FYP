@@ -10,6 +10,13 @@
             @csrf
             @method('PUT')
             <div class="row mb-3">
+                <label class="col-sm-2 col-label-form">Food Category</label>
+                <div class="col-sm-10">
+                    <input type="text" name="food_category" class="form-control" value=" {{
+                    $food->food_name}}" />
+                </div>
+            </div>
+            <div class="row mb-3">
                 <label class="col-sm-2 col-label-form">Food Name</label>
                 <div class="col-sm-10">
                     <input type="text" name="food_name" class="form-control" value=" {{
@@ -46,6 +53,13 @@
                 <label class="col-sm-2 col-label-form">Preparation Method</label>
                 <div class="col-sm-10">
                     <input type="text" name="preparation_method" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-label-form">Food Price</label>
+                <div class="col-sm-10">
+                    <input type="text" name="food_price" class="form-control" value=" {{
+                    $food->food_name}}" />
                 </div>
             </div>
             <div class="row mb-4">

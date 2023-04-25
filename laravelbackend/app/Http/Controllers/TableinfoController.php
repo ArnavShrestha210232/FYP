@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\tableinfo;
 use Illuminate\Http\Request;
 
+
 class TableinfoController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class TableinfoController extends Controller
     public function index()
     {
         $data = Tableinfo::latest()->paginate(5);
-        return view('index', compact('data'))->with('i',(request()->input('page',1)-1)*5);
+        return view('tableinfo.index', compact('data'))->with('i',(request()->input('page',1)-1)*5);
     }
 
     /**
@@ -21,7 +22,7 @@ class TableinfoController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('tableinfo.create');
     }
 
     /**
@@ -57,7 +58,7 @@ class TableinfoController extends Controller
      */
     public function show(tableinfo $tableinfo)
     {
-        return view('show', compact('tableinfo'));
+        return view('tableinfo.show', compact('tableinfo'));
     }
 
     /**
@@ -65,7 +66,7 @@ class TableinfoController extends Controller
      */
     public function edit(tableinfo $tableinfo)
     {
-        return view('edit', compact('tableinfo'));
+        return view('tableinfo.edit', compact('tableinfo'));
     }
 
     /**

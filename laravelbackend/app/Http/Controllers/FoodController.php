@@ -29,11 +29,13 @@ class FoodController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'food_category'         =>  'required',
             'food_name'         =>  'required|unique:food',
             'food_size'         =>  'required',
             'food_calories'         =>  'required', 
             'meal_type'         =>  'required',
             'preparation_method'         =>  'required',
+            'food_price'         =>  'required',
             'food_image'        =>  'required|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]); 
         
@@ -44,11 +46,13 @@ class FoodController extends Controller
         
         $food = new Food;
 
+        $food->food_category = $request->food_category;
         $food->food_name = $request->food_name;
         $food->food_size = $request->food_size;
         $food->food_calories = $request->food_calories;
         $food->meal_type = $request->meal_type;
         $food->preparation_method = $request->preparation_method;
+        $food->food_price = $request->food_price;
         $food->food_image = $file_name;
 
         $food->save();
@@ -82,11 +86,13 @@ class FoodController extends Controller
     $food)
     {
         $request->validate([
+            'food_category'         =>  'required',
             'food_name'         =>  'required|unique:food',
             'food_size'         =>  'required',
             'food_calories'         =>  'required', 
             'meal_type'         =>  'required',
             'preparation_method'         =>  'required',
+            'food_price'         =>  'required',
             'food_image'        =>  'required|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]); 
 
@@ -101,6 +107,8 @@ class FoodController extends Controller
 
         $food = food::find($request->hidden_id);
 
+        $food->food_category = $request->food_category;
+
         $food->food_name = $request->food_name;
 
         $food->food_size = $request->food_size;
@@ -110,6 +118,8 @@ class FoodController extends Controller
         $food->meal_type = $request->meal_type;
 
         $food->preparation_method = $request->preparation_method;
+
+        $food->food_price = $request->food_price;
 
         $food->food_image = $food_image;
 
